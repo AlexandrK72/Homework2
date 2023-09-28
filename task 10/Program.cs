@@ -7,29 +7,36 @@
 
 
 
+int Prompt(string message)
+{
+    System.Console.Write(message);
+    string value = Console.ReadLine();
+    int result = Convert.ToInt32(value);
+    return result;
+
+}
+
 int SecondDidgit(int num)
 {
-
-    int error = 0;
-    if (num >= 100 && num <= 999)
-    {
 
         int secNum = num % 100;
 
         return secNum / 10;
-    }
-
-    else
-    {
-        Console.WriteLine("Error. Enter a three-digit number!");
-    }
-
-return error;
+       
 }
-Console.WriteLine("Enter a number");
-int number = Convert.ToInt32(Console.ReadLine());
-
-int result = SecondDidgit(number);
 
 
-Console.WriteLine($"Second Digit -> {result}");
+int number = Prompt("Введите трехзначне число >");
+if (number < 100 || number >= 1000)
+{
+Console.WriteLine("Ошибка. Введите трехзначное число");
+return;
+}
+
+
+// Console.WriteLine("Enter a number");
+// int number = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine($"Введенное число  -> {number}");
+int res = SecondDidgit(number);
+Console.WriteLine($"Second Digit -> {res}");

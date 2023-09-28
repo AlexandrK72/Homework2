@@ -15,10 +15,10 @@ int ThirdDidgit(int num)
         num /= 10;
 
     }
-    return num%10;
+    return num;
 
 
-    while (num > 100)
+    while (num > 100);
     {
         if (num >= 100 && num <= 999)
         {
