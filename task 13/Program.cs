@@ -6,43 +6,41 @@
 
 //((num / 10 > 0) && (num / 100 > 0) && (num / 1000 == 0))
 
-int ThirdDidgit(int num)
-
+int Prompt(string message)
 {
+    System.Console.Write(message);
+    string value = Console.ReadLine();
+    int result = Convert.ToInt32(value);
+    return result;
 
-    while (num > 999) ;
+}
+
+int ThirdDidgit(int num)
+{
+    while (num > 999)
     {
         num /= 10;
 
     }
-    return num;
 
-
-    while (num > 100);
-    {
-        if (num >= 100 && num <= 999)
-        {
-
-
-            int secNum = num % 100;
-
-            return secNum / 10;
-        }
-        else
-        {
-            Console.WriteLine("Error.");
-        }
-
-
-
-    }
+    return num % 10;
 }
 
+bool ExcudeNumber(int num)
+{
+    if (num < 100)
+    {
+        Console.WriteLine("Третьей цыфры нет");
+        return false;
+    }
 
-Console.WriteLine("Enter a number");
-int number = Convert.ToInt32(Console.ReadLine());
+    return true;
 
-int result = ThirdDidgit(number);
+}
+int number = Prompt("Enter a number ->");
 
+if (ExcudeNumber(number))
+{
+    Console.WriteLine(ThirdDidgit(number));
 
-Console.WriteLine($"Second Digit -> {result}");
+}
